@@ -5,7 +5,7 @@ function uploadPcap() {
     formData.append('file', file);
     formData.append('user_id', user_id);
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://flask-microservice.azurewebsites.net/upload_pcap');
+    xhr.open('POST', 'http://127.0.0.1:5000/upload_pcap');
     xhr.onload = function() {
       if (xhr.status === 200) {
         alert('PCAP file uploaded successfully');
