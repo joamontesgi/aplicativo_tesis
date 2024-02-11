@@ -26,77 +26,57 @@
         /* Estilos para el navbar */
         .navbar {
             background-color: rgba(59,61,61,255);
-            border-bottom: 2px solid rgba(149, 180, 58, 1); /* Agrega un borde en la parte inferior del navbar */
+            border-bottom: 2px solid rgba(149, 180, 58, 1);
         }
 
-        /* Estilos para los enlaces del navbar */
-        .navbar .navbar-nav .nav-link {
+        /* Estilos para los enlaces del navbar, incluyendo 'Servicio' y 'Resultados' */
+        .navbar .nav-link, .navbar .navbar-brand.custom-nav-item {
             background-color: rgba(149, 180, 58, 1);
-            color: white;
-            border-radius: 5px; /* Redondea ligeramente los bordes de los botones */
-            margin-left: 10px; /* Agrega espacio entre los botones */
-            padding: 8px 12px; /* Ajusta el espaciado interno de los botones */
+            color: white !important;
+            border-radius: 5px;
+            margin-left: 10px;
+            padding: 8px 12px;
         }
 
-        /* Efecto de hover para los enlaces del navbar */
-        .navbar .navbar-nav .nav-link:hover {
-            background-color: rgba(120, 150, 40, 1); /* Cambia el color de fondo al hacer hover */
+        /* Efecto de hover para los enlaces del navbar, incluyendo 'Servicio' y 'Resultados' */
+        .navbar .nav-link:hover, .navbar .navbar-brand.custom-nav-item:hover {
+            background-color: rgba(120, 150, 40, 1);
         }
 
         /* Estilo para el botón de cierre de sesión */
-        .navbar .navbar-nav .dropdown-menu .dropdown-item:last-child {
+        .navbar .navbar-nav .dropdown-menu .dropdown-item {
             background-color: rgba(149, 180, 58, 1);
             color: white;
             border-radius: 5px;
         }
 
         /* Efecto de hover para el botón de cierre de sesión */
-        .navbar .navbar-nav .dropdown-menu .dropdown-item:last-child:hover {
+        .navbar .navbar-nav .dropdown-menu .dropdown-item:hover {
             background-color: rgba(120, 150, 40, 1);
         }
-                /* Estilo para el texto del nombre del aplicativo, "Servicio" y "Resultados" */
+
+        /* Estilo para el texto del nombre del aplicativo, "Servicio" y "Resultados" */
         .navbar-brand,
         .navbar .navbar-brand.custom-nav-item {
-            color: rgba(220,220,221,255) !important;/* Cambia el color del texto a blanco */
+            color: rgba(220,220,221,255) !important;
         }
 
         /* Estilo para el contenido principal */
         .content {
             background-color: rgba(220, 220, 221, 1);
-            padding: 20px; /* Agrega relleno al contenido principal */
-            border-radius: 10px; /* Redondea los bordes del contenido */
-        }
-
-        /* Estilo para los botones "Servicio" y "Resultados" en el navbar */
-        .navbar .navbar-nav .custom-nav-item {
-            background-color: rgba(149, 180, 58, 1);
-            color: white;
-            border-radius: 5px;
-            margin-left: 10px;
-            padding: 8px 12px;
-        }
-
-        /* Efecto de hover para los botones "Servicio" y "Resultados" */
-        .navbar .navbar-nav .custom-nav-item:hover {
-            background-color: rgba(120, 150, 40, 1);
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Inicio') }}
                 </a>
-                <a class="navbar-brand custom-nav-item" href="{{ route('home') }}">
-                    Servicio
-                </a>
-                <a class="navbar-brand custom-nav-item" href="{{ route('results.index') }}">
-                    Resultados
-                </a>
-
-
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -104,7 +84,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-item" href="{{ route('home') }}">Servicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-item" href="{{ route('results.index') }}">Resultados</a>
+                        </li>
+                        @auth
+                            @if (auth()->user()->role == 'admin')
+                                <li class="nav-item">
+                                    <a class="nav-link custom-nav-item" href="{{ route('admin.index') }}">Editar Usuario</a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -152,6 +144,5 @@
     <div>
         @include('components.footer')
     </div>
-    
 </body>
 </html>

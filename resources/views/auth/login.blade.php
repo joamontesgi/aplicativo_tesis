@@ -1,11 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    .custom-card {
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .custom-header {
+        background-color: #6c757d; /* Un gris más suave */
+        color: #ffffff;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .custom-btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        border-radius: 20px;
+    }
+
+    .btn-link {
+        color: #007bff;
+    }
+
+    .form-control {
+        border-radius: 10px;
+    }
+</style>
+
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Inicio de sesión') }}</div>
+            <div class="card custom-card">
+                <div class="card-header custom-header">{{ __('Inicio de sesión') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -53,7 +83,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary custom-btn-primary">
                                     {{ __('Inicio de sesión') }}
                                 </button>
 
@@ -70,4 +100,5 @@
         </div>
     </div>
 </div>
+
 @endsection

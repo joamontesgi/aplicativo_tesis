@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResultController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,14 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::middleware('auth')->group(function () {
+
+Route::middleware('auth')->group(function () {
     Route::get('/index', [ResultController::class, 'index'])->name('results.index');
     Route::get('/graficos/{result}', [ResultController::class, 'graficos'])->name('results.graficos');
+});
+
+Route::middleware('auth.admin')->group(function () {
+    Route::get('/adminedit', [AdminController::class, 'index'])->name('admin.index');
+    Route::post('/searchUser', [AdminController::class, 'searchUser'])->name('searchUser');
+    Route::post('/editUser', [AdminController::class, 'editUser'])->name('editUser');
 });
