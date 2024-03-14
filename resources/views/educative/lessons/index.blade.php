@@ -13,11 +13,11 @@
 
         <div class="carousel-inner">
             @foreach ($imagesInfo as $index => $image)
-                <div>
-                    <h2 class="text-center">{{ $image['title'] }}</h2>
-                    <p class="text-center">{{ $image['description'] }}</p>
-                </div>
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <div class="carousel-text-below">
+                        <h5>{{ $image['title'] }}</h5>
+                        <p class="bg-secondary text-white p-3 rounded-lg">{{ $image['description'] }}</p>
+                    </div>
                     <img src="{{ asset('images/educative/' . $image['filename']) }}" class="d-block w-100" alt="{{ $image['title'] }}">
                 </div>
             @endforeach
@@ -35,11 +35,30 @@
 </div>
 @endsection
 
+@push('styles')
+<style>
+    .carousel-item {
+        position: relative;
+    }
+
+    .carousel-text-below {
+        position: relative;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        text-align: center;
+        padding: 10px;
+    }
+</style>
+@endpush
+
 @push('scripts')
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     $(document).ready(function() {
         $('#carouselEducative').carousel({
-            interval: false // Esto asegura que el carrusel no auto-inicie.
+            interval: false
         });
     });
 </script>
