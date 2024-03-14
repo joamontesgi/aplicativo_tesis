@@ -8,6 +8,9 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <a href="{{ url('/lessons') }}" class="nav-link">Módulo educativo</a>
+                </li>
+                <li class="nav-item">
                     <a href="" class="nav-link">Acerca de</a>
                 </li>
                 <li class="nav-item">

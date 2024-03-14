@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResultController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,6 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('/searchUser', [AdminController::class, 'searchUser'])->name('searchUser');
     Route::post('/editUser', [AdminController::class, 'editUser'])->name('editUser');
 });
+
+//----------------------------Educative----------------------------
+Route::get('/lessons', [LessonController::class, 'index'])->name('lessons.index');
