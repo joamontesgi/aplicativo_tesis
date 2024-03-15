@@ -36,3 +36,5 @@ Route::middleware('auth.admin')->group(function () {
 
 //----------------------------Educative----------------------------
 Route::get('/lessons', [LessonController::class, 'index'])->name('lessons.index');
+Route::get('/test', [LessonController::class, 'test'])->name('lessons.test');
+Route::post('/test/submit', [LessonController::class, 'submitTest'])->name('lessons.submitTest');

@@ -61,4 +61,111 @@ class LessonController extends Controller
         return view('educative.lessons.index', compact('imagesInfo'));
     }
 
+    public function test()
+    {
+        $questions = [
+            [
+                'question' => ' ¿Cuál es la principal diferencia entre un ataque DoS y un ataque DDoS?',
+                'options' => ['Un ataque DoS utiliza múltiples sistemas infectados, mientras que un ataque DDoS solo utiliza uno', 
+                    'Un ataque DDoS puede involucrar cientos o incluso miles de direcciones IP únicas, mientras que un ataque DoS generalmente proviene de una única fuente.', 
+                    'Un ataque DDoS es menos potente que un ataque DoS.', 
+                    'No hay diferencia; ambos términos se usan indistintamente.'
+                ],
+                    'correct' => 1
+            ],
+            [
+                'question' => '¿Qué método utilizan los ataques DDoS para hacer inaccesible un sistema objetivo a los usuarios legítimos?',
+                'options' => ['Infectar el sistema objetivo con malware.', 
+                'Sobrecargar el sistema objetivo con un alto volumen de tráfico de red, como solicitudes HTTP, paquetes TCP o UDP.', 
+                'Cambiar las contraseñas de usuario del sistema objetivo.', 
+                'Desconectar físicamente el sistema objetivo de la red.'
+                ],
+                    'correct' => 1
+            ],
+            [
+                'question' => '¿Qué caracteriza específicamente a un ataque DosGoldenEye?',
+                'options' => ['Es un tipo de malware que roba información de tarjetas de crédito',
+                'Es un virus que cifra los archivos del usuario, pidiendo un rescate para desbloquearlos.',
+                'Es un software utilizado para mejorar la seguridad de los servidores web.',
+                'Es una herramienta de ataque DoS que se enfoca en servidores web mediante el envío de solicitudes maliciosas para sobrecargar el sistema.'
+                ],
+                    'correct' => 3
+            ],
+
+            [
+                'question' => '¿Cuál es la característica distintiva del ataque DosHulk en comparación con otros tipos de ataques DDoS?',
+                'options' => ['Utiliza millones de dispositivos infectados para lanzar el ataque.', 
+                'Enfoca el ataque únicamente a través de solicitudes UDP.', 
+                'Mantiene un pequeño número de conexiones HTTP abiertas durante mucho tiempo, agotando los recursos del servidor.', 
+                'Se basa en ataques físicos al hardware del servidor.'
+                ],
+                    'correct' => 2
+            ],
+            [
+                'question' => '¿Cómo opera el ataque DosSlowHttpTest en comparación con otros tipos de ataques DDoS?',
+                'options' => ['Generando un gran volumen de tráfico para sobrecargar rápidamente el servidor.', 
+                'Utilizando un número limitado de dispositivos para lanzar ataques focalizados.', 
+                'Manteniendo múltiples conexiones abiertas a un servidor de manera lenta y persistente para agotar los recursos.', 
+                'Atacando exclusivamente a través de la red Tor para anonimizar sus acciones.'
+                ],
+                    'correct' => 2
+            ],
+            [
+                'question' => '¿Cuál es el método utilizado por DosSlowLoris para sobrecargar y hacer inaccesible un servidor web?',
+                'options' => ['Envía un volumen extremadamente alto de solicitudes legítimas en un corto período de tiempo para consumir el ancho de banda del servidor.', 
+                'Infiltra el servidor con malware para interrumpir directamente su funcionamiento.', 
+                'Mantiene abiertas tantas conexiones como sea posible mediante el envío periódico de cabeceras HTTP parciales, sin completar nunca la solicitud.', 
+                'Corrompe archivos críticos del sistema operativo del servidor a través de vulnerabilidades de seguridad.'
+                ],
+                    'correct' => 2
+            ],
+            [
+                'question' => '¿Cuál de las siguientes opciones describe mejor el proceso de aprendizaje en una Red Neuronal Profunda (DNN)?',
+                'options' => ['El aprendizaje ocurre a través de un proceso manual donde los expertos ajustan los pesos de las conexiones entre neuronas basándose en su experiencia.', 
+                'Las neuronas en una capa se conectan aleatoriamente a las neuronas en la capa siguiente sin ajustes durante el entrenamiento.', 
+                'El entrenamiento de una DNN se basa en el uso exclusivo de datos de entrada sin necesidad de ajustar los pesos de las conexiones entre neuronas.', 
+                'El aprendizaje implica ajustar los pesos de las conexiones entre neuronas a través del descenso de gradiente y la retropropagación del error para minimizar una función de pérdida.'
+                ],
+                    'correct' => 3
+            ],
+            [
+                'question' => '¿Cuál es el principal beneficio de utilizar capas de convolución en una Red Neuronal Convolucional (CNN) para el procesamiento de imágenes?',
+                'options' => ['Permite que la red procese imágenes más rápidamente al reducir su resolución antes del entrenamiento.', 
+                'Facilita el entrenamiento de la red al requerir menos datos de entrada para el aprendizaje efectivo.', 
+                'Las capas de convolución aplican operaciones de convolución a la entrada, lo que permite a la red detectar características locales como bordes, texturas y patrones en imágenes.', 
+                'Elimina la necesidad de capas de agrupación (pooling), simplificando así la arquitectura de la red.'
+                ],
+                    'correct' => 2
+            ],
+            [
+                'question' => '¿Cuál de las siguientes afirmaciones describe mejor la diferencia fundamental entre las CNN y las DNN?',
+                'options' => ['Las CNN solo pueden procesar datos de texto, mientras que las DNN están diseñadas exclusivamente para imágenes y vídeos.', 
+                'Las CNN y las DNN son idénticas en términos de arquitectura y aplicación, diferenciándose solo en el nombre.', 
+                'Las CNN utilizan capas de convolución y agrupación para procesar eficazmente patrones locales en datos bidimensionales, como imágenes, haciéndolas ideales para tareas de visión por computadora. Las DNN, siendo más generales, se aplican a una variedad más amplia de dominios sin capas de convolución específicas.', 
+                'Las DNN son incapaces de aprender de los datos, mientras que las CNN están equipadas con inteligencia artificial avanzada que les permite autoaprender sin intervención humana.'
+                ],
+                    'correct' => 2
+            ],
+            [
+                'question' => '¿Cuál de las siguientes opciones NO es una razón común por la cual se llevan a cabo ataques de denegación de servicio (DDoS)?',
+                'options' => ['Para probar la resistencia y seguridad de los propios sistemas informáticos del atacante.', 
+                'Extorsión, amenazando con lanzar un ataque DDoS a menos que la víctima pague un rescate.', 
+                'Competencia o rivalidad empresarial, donde una empresa ataca a otra para interrumpir sus servicios en línea y obtener una ventaja competitiva.', 
+                'Activismo, donde grupos o individuos lanzan ataques DDoS como forma de protesta contra sitios web o servicios en línea con los que no están de acuerdo.'
+                ],
+                    'correct' => 0
+            ]
+        ];
+
+        return view('educative.lessons.test',compact('questions'));
+    }
+
+    public function submitTest(Request $request)
+    {
+        dd($request->all());
+        $answers = $request->input('answers'); 
+
+        return back()->with('success', 'Test enviado correctamente.'); // Redirige de vuelta con un mensaje de éxito
+    }
+
 }

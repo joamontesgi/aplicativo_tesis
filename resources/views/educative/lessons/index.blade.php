@@ -32,6 +32,10 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <!-- Botón para iniciar el test, inicialmente oculto -->
+    <div class="text-center mt-4">
+        <button id="startTestBtn" class="btn btn-primary" style="display:none;">Iniciar Test</button>
+    </div>
 </div>
 @endsection
 
@@ -59,6 +63,20 @@
     $(document).ready(function() {
         $('#carouselEducative').carousel({
             interval: false
+        });
+
+        var totalItems = $('.carousel-item').length;
+        var lastIndex = totalItems - 1;
+
+        $('#carouselEducative').on('slid.bs.carousel', function () {
+            var currentIndex = $('div.active').index();
+            if(currentIndex === lastIndex){
+                $('#startTestBtn').show();
+            }
+        });
+
+        $('#startTestBtn').click(function(){
+            window.location.href = '/test'; // Asegúrate de ajustar esta URL a la ruta de tu test
         });
     });
 </script>
