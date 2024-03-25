@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Intervention\Image\ImageManagerStatic as Image;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class LessonController extends Controller
@@ -162,10 +163,42 @@ class LessonController extends Controller
 
     public function submitTest(Request $request)
     {
-        dd($request->all());
-        $answers = $request->input('answers'); 
+        //validación de datos nulos
+        $validator = Validator::make($request->all(), [
+            'answers' => 'required|array',
+            'answers.*' => 'required|integer|between:0,3'
+        ],[
+            'answers.required' => 'Debes responder todas las preguntas',
+        ]);
 
-        return back()->with('success', 'Test enviado correctamente.'); // Redirige de vuelta con un mensaje de éxito
+        if ($validator->fails()) {
+            return redirect('/test')->withErrors($validator)->withInput();
+        }
+
+        $correctAnswers = [
+            0 => 1,
+            1 => 1,
+            2 => 3,
+            3 => 2,
+            4 => 2,
+            5 => 2,
+            6 => 3,
+            7 => 2,
+            8 => 2,
+            9 => 0
+        ];
+
+        $score = 0;
+        foreach ($request->answers as $questionIndex => $answer) {
+            if (isset($correctAnswers[$questionIndex]) && $correctAnswers[$questionIndex] == $answer) {
+                $score++;
+            }
+        }
+
+        $totalQuestions = count($correctAnswers);
+        $percentageScore = ($score / $totalQuestions) * 100;
+
+        return redirect('/test')->with('score', $percentageScore);
     }
 
 }

@@ -2,6 +2,20 @@
 
 @section('content')
 <div class="container mt-5">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if(Session::has('score'))
+        <div class="alert alert-success" role="alert">
+            Tu puntaje es: {{ Session::get('score') }}
+        </div>
+    @endif
     <h2 class="mb-4 text-center">Test</h2>
     <form action="{{ route('lessons.submitTest') }}" method="post">
         @csrf

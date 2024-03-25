@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Result;
+use App\Models\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResultNotification;
 
 class ResultController extends Controller
 {
@@ -51,6 +54,18 @@ class ResultController extends Controller
         $result->dosslowhttptest_dos = $request->dosslowhttptest_dos;
         $result->dossslowloris_dos = $request->dossslowloris_dos;
         $result->save();
+
+        $user = User::find($request->user_id);
+        $user_email = $user->email;
+
+        Mail::to($user_email)->send(new ResultNotification());
+
+        return [
+            'message' => 'Result created',
+            'result' => $result
+        ];
+
+        /*Buscar el correo del usuario y enviarle un e-mail*/
     }
 
     /**
