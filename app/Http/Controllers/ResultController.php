@@ -64,8 +64,6 @@ class ResultController extends Controller
             'message' => 'Result created',
             'result' => $result
         ];
-
-        /*Buscar el correo del usuario y enviarle un e-mail*/
     }
 
     /**
@@ -117,7 +115,6 @@ class ResultController extends Controller
     {
         
         return view('results.graficos', compact('result'));
-        // return $result;
 
     }
 }

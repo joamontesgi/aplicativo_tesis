@@ -3,7 +3,6 @@
 <div class="container my-5">
     <h2 class="mb-4 text-center">Cambiar Rol de Usuario</h2>
     <div class="mb-3">
-        <!-- Error Validator -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

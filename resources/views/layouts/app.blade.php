@@ -56,13 +56,11 @@
             background-color: rgba(120, 150, 40, 1);
         }
 
-        /* Estilo para el texto del nombre del aplicativo, "Servicio" y "Resultados" */
         .navbar-brand,
         .navbar .navbar-brand.custom-nav-item {
             color: rgba(220,220,221,255) !important;
         }
 
-        /* Estilo para el contenido principal */
         .content {
             background-color: rgba(220, 220, 221, 1);
             padding: 20px;
@@ -97,15 +95,17 @@
                         @auth
                             @if (auth()->user()->role == 'admin')
                                 <li class="nav-item">
+                                    <a class="nav-link custom-nav-item" href="{{ route('admin.userGrap') }}">Resultados Administrador</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link custom-nav-item" href="{{ route('admin.index') }}">Editar Usuario</a>
                                 </li>
                             @endif
                         @endauth
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">

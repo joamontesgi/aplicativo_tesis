@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use App\Models\Result;
 
 class AdminController extends Controller
 {
@@ -15,7 +16,7 @@ class AdminController extends Controller
 
     public function searchUser(Request $request)
     {
-        //validate the request
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
         ],
@@ -30,7 +31,6 @@ class AdminController extends Controller
                 ->withInput();
         }
 
-        //Search the user
         $mail = $request->email;
         $user = User::where('email', $mail)->first();
         if ($user) {
@@ -44,7 +44,6 @@ class AdminController extends Controller
 
     public function editUser(Request $request)
     {
-        //validate the request
         $validatorChange = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
@@ -83,6 +82,41 @@ class AdminController extends Controller
 
         $succes_message = 'Usuario actualizado';
         return view('admin.index', ['succes_message' => $succes_message]);
+    }
+
+    public function userGrap(){
+        return view('results.admin.index');
+    }
+
+    public function searchUserGrap(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+        ],
+        [
+            'email.required' => 'El campo email es requerido',
+            'email.email' => 'El campo email debe ser un correo electrónico'
+        ]);
+        if ($validator->fails()) {
+            return
+                redirect('/searchUserGrap') 
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $mail = $request->email;
+        $user = User::where('email', $mail)->first();
+        if ($user) {
+            return view('results.admin.index', ['user' => $user]);
+        } else {
+            $error_found = 'Usuario no encontrado';
+            return view('results.admin.index', ['error_found' => $error_found]);
+        }
+    }
+
+    public function graficosGrap()
+    {
+        $results = Result::all();
+        return view('results.admin.adminGraphs', compact('results'));
     }
 
 }
