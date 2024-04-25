@@ -2,42 +2,36 @@
     <div class="container-fluid p-4">
         <!--Grid row-->
         <div class="row my-6">
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <!-- Grid column for logo and description -->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <div class="rounded-circle shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 150px; height: 150px;">
-                    <img src="{{asset('/images/LogoGaiaCuadrado.png') }}" height="150" alt="" loading="lazy" />
+                    <img src="{{asset('/images/LogoGaiaCuadrado.png') }}" height="150" alt="Logo GAIA" loading="lazy" />
                 </div>
                 <p class="text-center">Refactorización de un Sistema de Detección de Intrusos Orientado a Servicios en la Nube para Detectar Ataques de Denegación de Servicios Distribuidos. Este proyecto tiene como objetivo principal mejorar la detección y mitigación de ataques DDoS/DoS en entornos de servicios en la nube, utilizando técnicas de aprendizaje supervisado y análisis de tráfico de red.</p>
             </div>
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold">Desarrollador</h6>
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #95B43A; height: 2px" />
-                    <p><i class="fas fa-home mr-3"></i>Juan Camilo Ballesteros</p>
-                    <p><i class="fas fa-envelope mr-3">Administración de Sistemas Informáticos</i>
-                </div>
+            <!-- Grid column for developer info -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                <h6 class="text-uppercase fw-bold">Desarrollador</h6>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #95B43A; height: 2px" />
+                <p><i class="fas fa-user mr-3"></i>Juan Camilo Ballesteros</p>
+                <p><i class="fas fa-laptop-code mr-3"></i>Administración de Sistemas Informáticos</p>
             </div>
-            <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
-                    <h6 class="text-uppercase fw-bold">Director y codirector</h6>
-                    <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #95B43A; height: 2px" />
-                    <p><i class="fas fa-home mr-3"></i>Néstor Darío Duque</p>
-                    <p><i class="fas fa-home mr-3"></i>Albeiro Montes Gil</p>
-                    <a href="https://repositorio.unal.edu.co/handle/unal/83889" class="text-white">Maestría</a>
-                </div>
+            <!-- Grid column for director info -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                <h6 class="text-uppercase fw-bold">Director y codirector</h6>
+                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #95B43A; height: 2px" />
+                <p><i class="fas fa-user-graduate mr-3"></i>Néstor Darío Duque</p>
+                <p><i class="fas fa-user-graduate mr-3"></i>Albeiro Montes Gil</p>
+                <a href="https://repositorio.unal.edu.co/handle/unal/83889" class="text-white">Maestría</a>
             </div>
-            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
+            <!-- Grid column for contact info -->
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
                 <h6 class="text-uppercase fw-bold">Contacto</h6>
                 <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #95B43A; height: 2px" />
-                <p><i class="fas fa-home mr-3"></i>Manizales, Caldas</p>
+                <p><i class="fas fa-map-marker-alt mr-3"></i>Manizales, Caldas</p>
                 <p><i class="fas fa-envelope mr-3"></i>Universidad Nacional de Colombia, Campus La Nubia</p>
-                <p><i class="fas fa-mail mr-3"></i>jballesterosd@unal.edu.co</p>
+                <p><i class="fas fa-envelope mr-3"></i>jballesterosd@unal.edu.co</p>
             </div>
-            <!--Grid column-->
         </div>
         <!--Grid row-->
     </div>
@@ -45,6 +39,7 @@
         © 2024 GAIA UNAL MANIZALES
     </div>
 </footer>
+
 
 <style>
     .custom-footer {

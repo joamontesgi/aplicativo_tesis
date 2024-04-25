@@ -28,22 +28,24 @@
                 </ul>
             </div>
         @endif
-
-        <form method="POST" action="/searchUser" class="mb-5">
-            @csrf
-            <div class="form-group">
-                <label for="email" class="form-label">Correo electrónico del usuario:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Correo del usuario">
-                <button type="submit" class="btn btn-primary mt-3">Buscar</button>
-            </div>
-        </form>
-
         @if (isset($user))
             <div class="alert alert-success">
                 <ul>
                     <li>Usuario encontrado</li>
                 </ul>
             </div>
+        @endif
+
+        <form method="POST" action="/searchUser" class="mb-5">
+            @csrf
+            <div class="form-group">
+                <label for="email" class="form-label">Correo electrónico del usuario:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Correo del usuario" required>
+                <button type="submit" class="btn btn-primary mt-3">Buscar</button>
+            </div>
+        </form>
+
+        @if (isset($user))
             <form method="POST" action="/editUser">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ $user->id }}">

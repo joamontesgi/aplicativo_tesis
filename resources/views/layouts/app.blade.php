@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Inicio') }}</title>
+    <title>Types of DDoS</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -72,10 +72,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Inicio') }}
-                </a>
-                
+                <div class="navbar-brand">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('/images/LogoGaiaCuadrado.png') }}" height="50" alt="Logo GAIA" loading="lazy" style="max-height: 50px; width: auto;">
+                    </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -95,7 +96,7 @@
                         @auth
                             @if (auth()->user()->role == 'admin')
                                 <li class="nav-item">
-                                    <a class="nav-link custom-nav-item" href="{{ route('admin.userGrap') }}">Resultados Administrador</a>
+                                    <a class="nav-link custom-nav-item" href="{{ route('admin.indexGraph') }}">Resultados Administrador</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link custom-nav-item" href="{{ route('admin.index') }}">Editar Usuario</a>

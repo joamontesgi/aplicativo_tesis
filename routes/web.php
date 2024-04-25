@@ -33,9 +33,11 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('/searchUser', [AdminController::class, 'searchUser'])->name('searchUser');
     Route::post('/editUser', [AdminController::class, 'editUser'])->name('editUser');
     //---------------------------------Graps---------------------------------
-    Route::get('/indexGrap', [AdminController::class, 'userGrap'])->name('admin.userGrap');
+    Route::get('/indexGrap', [AdminController::class, 'indexGraph'])->name('admin.indexGraph');
     Route::post('/searchUserGrap', [AdminController::class, 'searchUserGrap'])->name('searchUserGrap');
     Route::get('/graficosGrap', [AdminController::class, 'graficosGrap'])->name('admin.graficosGrap');
+    Route::get('/userGraph', [AdminController::class, 'userGraph'])->name('admin.userGraph');
+    
 });
 
 //----------------------------Educative----------------------------

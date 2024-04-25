@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Logo</a>
+        <div>
+            <a class="navbar-brand" href="/home">
+                <!-- Ajuste del tamaño del logo para que sea adecuado para el navbar -->
+                <img src="{{asset('/images/LogoGaiaCuadrado.png') }}" height="50" alt="Logo GAIA" loading="lazy" style="max-height: 50px; width: auto;"/>
+            </a>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

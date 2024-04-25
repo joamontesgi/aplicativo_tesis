@@ -36,7 +36,6 @@ class AdminController extends Controller
         if ($user) {
             return view('admin.index', ['user' => $user]);
         } else {
-            //error message, user not found
             $error_found = 'Usuario no encontrado';
             return view('admin.index', ['error_found' => $error_found]);
         }
@@ -84,11 +83,12 @@ class AdminController extends Controller
         return view('admin.index', ['succes_message' => $succes_message]);
     }
 
-    public function userGrap(){
+    public function indexGraph(){
         return view('results.admin.index');
     }
 
     public function searchUserGrap(Request $request){
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
         ],
@@ -106,10 +106,18 @@ class AdminController extends Controller
         $mail = $request->email;
         $user = User::where('email', $mail)->first();
         if ($user) {
-            return view('results.admin.index', ['user' => $user]);
+            $id = $user->id;
+            $result = Result::where('user_id', $id)->first();
+            if ($result) {
+                $result_id = $result->id;
+                return redirect("/graficos/{$result_id}");
+            } else {
+                $error_found = 'El usuario no tiene resultados registrados';
+                return view('results.admin.userGraph', ['error_found' => $error_found]);
+            }
         } else {
             $error_found = 'Usuario no encontrado';
-            return view('results.admin.index', ['error_found' => $error_found]);
+            return view('results.admin.userGraph', ['error_found' => $error_found]);
         }
     }
 
@@ -117,6 +125,10 @@ class AdminController extends Controller
     {
         $results = Result::all();
         return view('results.admin.adminGraphs', compact('results'));
+    }
+
+    public function userGraph(){
+        return view('results.admin.userGraph');
     }
 
 }

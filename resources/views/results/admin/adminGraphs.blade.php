@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container my-5">
-    <div>
+    <div class="text-center">
         <h3>
             Datos globales y generales de los resultados
         </h3>
