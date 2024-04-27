@@ -2,6 +2,13 @@
 @section('content')
 <div class="container my-5">
     <h2 class="mb-4 text-center">Cambiar Rol de Usuario</h2>
+    <div class="d-grid gap-2">
+        <button type="button" class="btn btn-secondary btn-lg rounded shadow" data-bs-toggle="modal" data-bs-target="#userModal">
+            Ver Usuarios
+        </button>
+        <!-- Incluir el Modal -->
+        @include('components.userTableModal')
+    </div>
     <div class="mb-3">
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -151,5 +158,6 @@
 
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 
 @endsection

@@ -32,6 +32,7 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('/adminedit', [AdminController::class, 'index'])->name('admin.index');
     Route::post('/searchUser', [AdminController::class, 'searchUser'])->name('searchUser');
     Route::post('/editUser', [AdminController::class, 'editUser'])->name('editUser');
+    Route::get('/usersTable', [AdminController::class, 'ShowUsersTable'])->name('admin.usersTable');
     //---------------------------------Graps---------------------------------
     Route::get('/indexGrap', [AdminController::class, 'indexGraph'])->name('admin.indexGraph');
     Route::post('/searchUserGrap', [AdminController::class, 'searchUserGrap'])->name('searchUserGrap');

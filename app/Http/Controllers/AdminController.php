@@ -131,4 +131,10 @@ class AdminController extends Controller
         return view('results.admin.userGraph');
     }
 
+    public function ShowUsersTable() {
+        $users = User::all(['name', 'lastname', 'email']);
+        
+        return response()->json($users);
+    }
+    
 }

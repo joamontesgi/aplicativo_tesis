@@ -25,16 +25,23 @@ document.addEventListener('DOMContentLoaded', function () {
         Plotly.newPlot(idDiv, [trace], layout);
     }
 
-    function crearGraficaPastel(idDiv, datos, titulo) {
-        var trace = {
-            labels: [...Array(datos.length).keys()],
-            values: datos,
-            type: 'pie'
-        };
+    function crearTreeMap(idDiv, datos, titulo) {
+        var data = [{
+            type: 'treemap',
+            labels: datos.map(item => item.name),
+            parents: datos.map(() => ""), // En caso de que todos sean raíz, deberían tener el parent vacío o el nombre del grupo principal si es una subcategoría.
+            values: datos.map(item => item.value),
+            textinfo: 'label+value',
+            outsidetextfont: {size: 20, color: '#377eb8'},
+            marker: {line: {width: 2, color: 'black'}}
+        }];
+    
         var layout = {
-            title: titulo
+            title: titulo,
+            autosize: true
         };
-        Plotly.newPlot(idDiv, [trace], layout);
+    
+        Plotly.newPlot(idDiv, data, layout);
     }
 
     function crearGraficaLinea(idDiv, datos, titulo) {
@@ -82,16 +89,30 @@ document.addEventListener('DOMContentLoaded', function () {
         Plotly.newPlot(idDiv, [trace], layout);
     }
 
-    // Ejecutar funciones para crear gráficas
-    crearGraficaBarras('barra', benigno_uno, 'Gráfica de Barras - Benigno Uno');
-    crearGraficaPastel('pie', benigno_uno, 'Gráfica de Pastel - Benigno Uno');
-    crearGraficaLinea('myDiv', ddos_uno, 'Gráfica de Línea - DDoS Uno');
-    crearGraficaArea('myDiv2', ddos_uno, 'Gráfica de Área - DDoS Uno');
-    crearGraficaPolar('myDiv3', dosgoldeneye_uno, 'Gráfica Polar - DosGoldenEye Uno');
-    crearGraficaBarras('myDiv4', dosgoldeneye_uno, 'Gráfica de Barras - DosGoldenEye Uno');
-    crearGraficaLinea('myDiv5', doshulk_uno, 'Gráfica de Línea - DoSHulk Uno');
-    crearGraficaArea('myDiv6', doshulk_uno, 'Gráfica de Área - DoSHulk Uno');
-    crearGraficaPastel('myDiv7', dosslowhttptest_uno, 'Gráfica de Pastel - DoSSlowhttptest Uno');
-    crearGraficaPolar('myDiv8', dosslowhttptest_uno, 'Gráfica Polar - DoSSlowhttptest Uno');
-    crearGraficaBarras('myDiv9', dossslowloris_uno, 'Gráfica de Barras - DoSSslowloris Uno');
+    //sumamos todos los datos de cada vector
+    var suma_benigno_uno = benigno_uno.reduce((a, b) => a + b, 0);
+    var suma_ddos_uno = ddos_uno.reduce((a, b) => a + b, 0);
+    var suma_dosgoldeneye_uno = dosgoldeneye_uno.reduce((a, b) => a + b, 0);
+    var suma_doshulk_uno = doshulk_uno.reduce((a, b) => a + b, 0);
+    var suma_dosslowhttptest_uno = dosslowhttptest_uno.reduce((a, b) => a + b, 0);
+    var suma_dossslowloris_uno = dossslowloris_uno.reduce((a, b) => a + b, 0);
+
+    //asemos un vector para desarrollar el tree map
+    var treeMap = [
+        { name: 'Benigno Uno', value: suma_benigno_uno },
+        { name: 'DDoS Uno', value: suma_ddos_uno },
+        { name: 'DoSGoldenEye Uno', value: suma_dosgoldeneye_uno },
+        { name: 'DoSHulk Uno', value: suma_doshulk_uno },
+        { name: 'DoSSlowhttptest Uno', value: suma_dosslowhttptest_uno },
+        { name: 'DoSSlowloris Uno', value: suma_dossslowloris_uno }
+    ];
+
+    crearTreeMap('general_tree', treeMap, 'Tree Map - Conteo General de Ataques');
+    crearGraficaBarras('benigno_uno_barra', benigno_uno, 'Gráfica de Barras - Benigno Uno');
+    crearGraficaLinea('ddos_uno_line', ddos_uno, 'Gráfica de Línea - DDoS Uno');
+    crearGraficaPolar('dosgoldeneye_uno_polar', dosgoldeneye_uno, 'Gráfica Polar - DosGoldenEye Uno');
+    crearGraficaBarras('dosgoldeneye_uno_barras', dosgoldeneye_uno, 'Gráfica de Barras - DosGoldenEye Uno');
+    crearGraficaArea('doshulk_uno_area', doshulk_uno, 'Gráfica de Área - DoSHulk Uno');
+    crearGraficaPolar('dosslowhttptest_uno_polar', dosslowhttptest_uno, 'Gráfica Polar - DoSSlowhttptest Uno');
+    crearGraficaBarras('dossslowloris_uno_barras', dossslowloris_uno, 'Gráfica de Barras - DoSSslowloris Uno');
 });

@@ -19,12 +19,9 @@
             </div>
             <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion1">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <div id="barra"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div id="pie"></div>
+                            <div id="benigno_uno_barra"></div>
                         </div>
                     </div>
                 </div>
@@ -42,12 +39,9 @@
             </div>
             <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion1">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <div id="myDiv"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div id="myDiv2"></div>
+                            <div id="ddos_uno_line"></div>
                         </div>
                     </div>
                 </div>
@@ -67,10 +61,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <div id="myDiv3"></div>
+                            <div id="dosgoldeneye_uno_polar"></div>
                         </div>
                         <div class="col-md-6">
-                            <div id="myDiv4"></div>
+                            <div id="dosgoldeneye_uno_barras"></div>
                         </div>
                     </div>
                 </div>
@@ -88,12 +82,9 @@
             </div>
             <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion1">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <div id="myDiv5"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div id="myDiv6"></div>
+                            <div id="doshulk_uno_area"></div>
                         </div>
                     </div>
                 </div>
@@ -111,12 +102,9 @@
             </div>
             <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion1">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <div id="myDiv7"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <div id="myDiv8"></div>
+                            <div id="dosslowhttptest_uno_polar"></div>
                         </div>
                     </div>
                 </div>
@@ -134,9 +122,29 @@
             </div>
             <div id="collapse6" class="collapse" aria-labelledby="heading6" data-parent="#accordion1">
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <div id="myDiv9"></div>
+                            <div id="dossslowloris_uno_barras"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--General tree map-->
+        <div class="card">
+            <div class="card-header" id="heading7">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                        General
+                    </button>
+                </h2>
+            </div>
+            <div id="collapse7" class="collapse" aria-labelledby="heading7" data-parent="#accordion1">
+                <div class="card-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div id="general_tree"></div>
                         </div>
                     </div>
                 </div>
@@ -148,10 +156,12 @@
 
 <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
 <script type="text/javascript">
-    // Crear un objeto global para almacenar los datos
     window.datosGraficas = @json($results);
 </script>
 <script src="{{ asset('js/adminGraph.js') }}"></script>
