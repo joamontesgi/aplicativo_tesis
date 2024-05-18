@@ -24,7 +24,7 @@
                 <p><i class="fas fa-user-graduate mr-3"></i>Gustavo Adolfo Isaza - (PhD) - Codirector del proyecto</p>
                 <p><i class="fas fa-user-graduate mr-3"></i>Jeferson Arango López - (PhD) - Experto asesor</p>
                 <p><i class="fas fa-user-graduate mr-3"></i>Albeiro Montes Gil - (Mgtr) - Investigador</p>
-                <a href="https://repositorio.unal.edu.co/handle/unal/83889" class="text-white">Maestría</a>
+                <a href="https://repositorio.unal.edu.co/handle/unal/83889" class="text-white" target="_blank">Maestría</a>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                 <h6 class="text-uppercase fw-bold">Otras personas implicadas</h6>
