@@ -153,11 +153,8 @@
             </form>
         @endif
     </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </div>
-
-
-<script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js">
 
 @endsection
